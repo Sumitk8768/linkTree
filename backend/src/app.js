@@ -2,7 +2,8 @@ import express from 'express';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import apiRoutes from './routes/index.routes.js';
-
+import passport from 'passport';
+// import './config/passport.js';
 
 const app = express();
 
@@ -10,6 +11,9 @@ const app = express();
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cookieParser());
+
+// app.use(passport.initialize());
+
 app.use(express.static('public'));
 app.use('/api', apiRoutes);
 
