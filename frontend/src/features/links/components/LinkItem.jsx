@@ -66,9 +66,7 @@ const LinkItem = ({ link, onDelete, onEdit, onToggle }) => {
         >
           <Trash2 size={19} />
         </button>
-        <button className="text-zinc-500 transition hover:text-zinc-950" aria-label="More actions">
-          <MoreHorizontal size={21} />
-        </button>
+       
       </div>
     </article>
   );

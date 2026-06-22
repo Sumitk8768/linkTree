@@ -14,6 +14,8 @@ router.delete("/:linkId", authMiddleware, linkController.deleteLink)
 
 router.get("/:username/analytics", authMiddleware, linkController.getAnalyticsByUsername)
 
+router.get("/me", authMiddleware, linkController.getMyLinks)
+
 router.get("/:username", linkController.getLinksByUsername)
 
 

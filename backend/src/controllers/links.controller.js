@@ -30,6 +30,20 @@ export const createLink = async (req, res) => {
     }
 }
 
+export const getMyLinks = async (req, res) => {
+   console.log("GET MY LINKS HIT");
+    const links = await linkModel.find({
+    user: req.user.id,
+
+
+  });
+
+  return res.status(200).json({
+    message: "Links retrieved successfully",
+    links,
+  });
+};
+
 export const getLinksByUsername = async (req, res) => {
 
     const { username } = req.params;
@@ -42,7 +56,12 @@ export const getLinksByUsername = async (req, res) => {
         });
     }
 
-    const links = await linkModel.find({ user: user._id });
+    // const links = await linkModel.find({ user: user._id });
+
+    const links = await linkModel.find({
+    user: user._id,
+    isActive: true,
+  });
 
     return res.status(200).json({
         message: 'Links retrieved successfully',

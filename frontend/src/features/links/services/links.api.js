@@ -5,8 +5,8 @@ export const createLink = async ({ title, url }) => {
   return response.data;
 };
 
-export const getMyLinks = async ({ username }) => {
-  const response = await apiClient.get(`/links/${username}`);
+export const getMyLinks = async () => {
+  const response = await apiClient.get(`/links/me`);
   return response.data;
 };
 

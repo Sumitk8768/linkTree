@@ -5,12 +5,12 @@ const useLinks = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const fetchLinks = useCallback(async ({ username }) => {
+  const fetchLinks = useCallback(async () => {
     setLoading(true);
     setError("");
 
     try {
-      const responseData = await getMyLinks({ username });
+      const responseData = await getMyLinks();
       return Array.isArray(responseData?.links) ? responseData.links : [];
     } catch (requestError) {
       setError(requestError?.response?.data?.message || "Unable to load links.");

@@ -30,7 +30,7 @@ const LinksDashboard = () => {
       return;
     }
 
-    fetchLinks({ username })
+    fetchLinks()
       .then((data) => setLinks(data))
       .catch(() => setLinks([]));
   }, [fetchLinks, username]);
@@ -40,7 +40,7 @@ const LinksDashboard = () => {
     setLinks((currentLinks) => currentLinks.filter((item) => (item._id || item.id) !== linkId));
 
     if (linkId) {
-      await removeLink({ linkId }).catch(() => fetchLinks({ username }).then(setLinks).catch(() => {}));
+      await removeLink({ linkId }).catch(() => fetchLinks().then(setLinks).catch(() => {}));
     }
   };
 
@@ -55,7 +55,7 @@ const LinksDashboard = () => {
 
     if (linkId) {
       await toggleLinkStatus({ linkId, isActive: nextActive }).catch(() =>
-        fetchLinks({ username }).then(setLinks).catch(() => {})
+        fetchLinks().then(setLinks).catch(() => {})
       );
     }
   };
@@ -98,20 +98,6 @@ const LinksDashboard = () => {
             placeholder="Search by title, URL or tag..."
           />
         </label>
-        <button className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-[#dedbd3] bg-white px-5 text-base font-semibold text-[#23242a]">
-          <Filter size={18} />
-          All links
-        </button>
-        <div className="flex h-12 rounded-full border border-[#dedbd3] bg-white p-0.5 text-sm font-semibold text-zinc-500">
-          {["All", "Active", "Archived"].map((item) => (
-            <button
-              key={item}
-              className={`rounded-full px-5 ${item === "All" ? "bg-[#101116] text-white" : ""}`}
-            >
-              {item}
-            </button>
-          ))}
-        </div>
       </div>
 
       {loading ? (

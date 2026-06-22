@@ -6,7 +6,7 @@ const suggestions = [
   "Read my latest essay",
   "Book a 1:1 call",
   "Download the free guide",
-  "Subscribe to my newsletter",
+  "Youtube",
 ];
 
 const urlPattern = /^(https?:\/\/)?([\w-]+\.)+[\w-]{2,}(\/[\w\-._~:/?#[\]@!$&'()*+,;=]*)?$/i;
