@@ -30,7 +30,8 @@ const Login = () => {
         identifier: formData.email,
         password: formData.password,
       });
-      const username = getAuthSession()?.username || responseData?.user?.username;
+      const username =
+        getAuthSession()?.username || responseData?.user?.username;
       navigate(username ? "/dashboard/links" : "/login");
     } catch {
       // The hook owns and exposes the user-facing error state.
@@ -54,7 +55,8 @@ const Login = () => {
             <h1 className="display-title text-5xl text-white xl:text-6xl">
               One link.
               <br />
-              <span className="italic text-white/85">Every</span> story you tell.
+              <span className="italic text-white/85">Every</span> story you
+              tell.
             </h1>
             <p className="mt-6 max-w-lg text-base font-semibold leading-7 text-white/55">
               The link-in-bio platform trusted by 240,000+ creators, founders,
@@ -63,8 +65,8 @@ const Login = () => {
 
             <div className="mt-10 max-w-lg rounded-2xl bg-white/15 px-6 py-6 text-white shadow-2xl backdrop-blur">
               <p className="text-base font-bold leading-7">
-                "Linkstack replaced four different tools for me. My booking
-                rate doubled in the first month."
+                "Linkstack replaced four different tools for me. My booking rate
+                doubled in the first month."
               </p>
               <div className="mt-5 flex items-center gap-3">
                 <div className="flex h-9 w-9 items-center justify-center rounded-full bg-cyan-500 text-xs font-extrabold">
@@ -90,14 +92,6 @@ const Login = () => {
         </aside>
 
         <main className="relative flex min-h-screen items-center justify-center px-5 py-8 sm:px-8">
-          <button
-            type="button"
-            aria-label="Toggle theme"
-            className="absolute right-6 top-6 flex h-9 w-9 items-center justify-center rounded-full text-sm text-[#111217] transition hover:bg-black/5"
-          >
-            Theme
-          </button>
-
           <section className="w-full max-w-[420px]">
             <div className="mb-7 flex items-center gap-3 lg:hidden">
               <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-cyan-500 text-base font-extrabold text-white shadow-lg shadow-cyan-500/30">
@@ -114,28 +108,27 @@ const Login = () => {
               audience.
             </p>
 
-            <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-3">
-              <button type="button" className="flex h-11 items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-white/45 px-3 text-sm font-semibold shadow-sm transition hover:bg-white">
-                <span className="font-bold text-red-500">G</span>
-                Google
-              </button>
-              <button type="button" className="flex h-11 items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-white/45 px-3 text-sm font-semibold text-zinc-600 shadow-sm transition hover:bg-white">
-                <span className="text-sm text-black">A</span>
-                Apple
-              </button>
-              <button type="button" className="flex h-11 items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-white/45 px-3 text-sm font-semibold text-zinc-600 shadow-sm transition hover:bg-white">
-                <span className="text-sm text-black">GH</span>
-                GitHub
-              </button>
-            </div>
 
-            <div className="my-8 flex items-center gap-4">
+            <div className="mt-7">
+              {/* uncomment after google auth */}
+              {/* <button
+                type="button"
+                className="flex h-11 w-full items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-white px-3 text-sm font-semibold shadow-sm transition hover:bg-zinc-50"
+              >
+                <span className="font-bold text-red-500">G</span>
+                Continue with Google
+              </button> */}
+            </div>
+          
+          {/* uncomment after google auth implimentation */}
+
+            {/* <div className="my-8 flex items-center gap-4">
               <div className="h-px flex-1 bg-zinc-200" />
               <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">
                 Or with email
               </span>
               <div className="h-px flex-1 bg-zinc-200" />
-            </div>
+            </div> */}
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <label className="block">
@@ -220,4 +213,3 @@ const Login = () => {
 };
 
 export default Login;
-
